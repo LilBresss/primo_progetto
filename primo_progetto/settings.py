@@ -55,7 +55,8 @@ ROOT_URLCONF = 'primo_progetto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'prima_app/templates/prima_app')],
+        'DIRS': [os.path.join(BASE_DIR,'prima_app/templates'),
+                 os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'prima_app',
+    'seconda_app'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'prima_app/templates'),
-                 os.path.join(BASE_DIR,'templates')],
+                 os.path.join(BASE_DIR,'templates'),
+                 os.path.join(BASE_DIR,'seconda_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

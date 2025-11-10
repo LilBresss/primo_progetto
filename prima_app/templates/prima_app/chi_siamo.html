@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi siamo</title>
-</head>
-<body>
+{%extends "base.html"%}
+
+{%block title%} {{ block.super }} | Chi siamo {%endblock title%}
+{%block content%}
     <h1>Chi siamo</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis voluptas quam optio magni neque! Maiores perferendis explicabo autem sint, sed repellendus. Eligendi nihil iure eaque suscipit corrupti cumque veniam itaque!</p>
-</body>
-</html>
+{%endblock content%}

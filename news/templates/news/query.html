@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} | Articoli e Giornalisti {% endblock title %}
+
+{% block content %} 
+    <p><strong>Articoli scritti da Bianchi: </strong>
+        <ul>
+            {% for articolo in articoli_cognome %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Totate degli articoli: </strong>{{numero_totale_articoli}}</p>
+    <hr>
+    <p><strong>Numero di articoli scritti da {{giornalista_1}}: </strong>{{numero_articoli_gionralista_1}}</p>
+    <hr>
+    <p><strong>Articoli ordinati per visualizzazioni: </strong>
+        <ol>
+            {% for articolo in articoli_ordinati %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ol>
+    </p>
+    <hr>
+    <p><strong>Articoli senza visualizzazioni: </strong>
+        <ul>
+            {% for articolo in articoli_senza_visualizzazioni %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Articolo più visualizzato: </strong>{{ articoli_piu_visualizzato }}</p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+    <p><strong></strong></p>
+    <hr>
+{%endblock content %}

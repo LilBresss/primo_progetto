@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | Lista articoli{% endblock title %}
+
+{% block content %}
+    <h4>{{ titolo }}:</h4>
+    {% for articolo in articoli %}
+        <p><strong>Id: </strong><a href="./articoli/{{ articolo.pk }}">{{ articolo.pk }}</a></p>
+        <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
+        <p><strong>Contenuto: </strong>{{ articolo.contenuto }}</p>
+        <p><strong>Autore: </strong>{{ articolo.giornalista }}</p>
+        <p><strong>Data: </strong>{{ articolo.data }}</p>
+        <p><strong>Visualizzazioni: </strong>{{ articolo.visualizzazioni }}</p>
+        <hr>
+    {% endfor %}
+{% endblock content %}

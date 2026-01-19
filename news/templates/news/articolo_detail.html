@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | {{ articolo.titolo }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ articolo.titolo }} </h1>
+    <h2>{{ articolo.contenuto }} </h2>
+    <h3>Autore: {{ articolo.giornalista }} </h3>
+    <p>Data: {{ articolo.data }}
+        <br>
+        Visualizzazioni: {{ articolo.visualizzazioni }}
+    </p>
+{% endblock content %}

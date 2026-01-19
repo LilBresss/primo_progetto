@@ -2,9 +2,10 @@
 
 {%block title%} {{ block.super }} | Index News{%endblock title%}
 {%block content%}
-    <h1>Index</h1>
+    <h1>Index news</h1>
     <ol>
         <li><a href="{% url 'index_generale'%}">Index generale</a></li>
         <li><a href="{% url 'news:homeview'%}">Home</a></li>
+        <li><a href="{% url 'news:lista_articoli'%}">Lista articoli</a></li>
     </ol>
 {%endblock content%}

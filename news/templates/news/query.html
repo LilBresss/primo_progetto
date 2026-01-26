@@ -33,20 +33,63 @@
     <hr>
     <p><strong>Articolo più visualizzato: </strong>{{ articoli_piu_visualizzato }}</p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Giornalisti nati dopo l'1 Gennaio 1990: </strong>
+        <ul>
+            {% for giornalista in giornalisti_data %}
+                <li>{{ giornalista }}: {{ giornalista.anno_di_nascita }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Articoli pubblicati l'1 Gennario 2023: </strong>
+        <ul>
+            {% for articolo in articoli_del_giorno %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Articoli pubblicati tra l'1 Gennaio 2023 e il 31 Dicembre 2023: </strong>
+        <ul>
+            {% for articolo in articoli_periodo %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Articoli scritti da giornalisi nati prima del 1980: </strong>
+        <ul>
+            {% for articolo in articoli_giornalisti %}
+                <li>{{ articolo }} - {{ articolo.giornalista }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Giornalista più giovane: </strong>{{ giornalista_giovane }}</p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Giornalista più anziano: </strong>{{ giornalista_anziano }}</p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Ultimi 5 articoli pubblicati: </strong>
+        <ul>
+            {% for articolo in ultimi %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
-    <p><strong></strong></p>
+    <p><strong>Articoli con minimo 100 visualizzazioni: </strong>
+        <ul>
+            {% for articolo in articoli_minime_visualizzazioni %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
     <hr>
+    <p><strong>Articoli che contengono Importante nel titolo: </strong>
+        <ul>
+            {% for articolo in articoli_parola %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
 {%endblock content %}

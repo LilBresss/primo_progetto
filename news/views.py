@@ -18,9 +18,18 @@ def home(request):
 def articoloDetailView(request, pk):
     articolo = get_object_or_404(Articolo, pk=pk)
     context = {
-        "articolo": articolo
+        'articolo': articolo
     }
     return render(request, "news/articolo_detail.html", context)
+
+def giornalistaDetailView(request, pk):
+    giornalista = get_object_or_404(Giornalista, pk=pk)
+    articoli = Articolo.objects.filter(giornalista=pk)
+    context = {
+        'giornalista': giornalista,
+        'articoli': articoli
+    }
+    return render(request, "news/giornalista_detail.html", context)
 
 def listaArticoli(request, pk=None):
     if(pk==None):
@@ -85,6 +94,32 @@ def queryBase(request):
     #15. Tutti gl articoli che contengono una certa parola nel titolo
     articoli_parola = Articolo.objects.filter(titolo__icontains='importante')
 
+    #16. Articoli pubblicati in un certo mese di un anno specifico
+    articoli_mese_anno = Articolo.objects.filter(data__month=1, data__year=2023)
+
+    #17. Giornalisti con almeno un articolo con più di 100 visualizzazioni
+    giornalisti_con_articoli_popolari = Giornalista.objects.filter(articoli__visualizzazioni__gte=100).distinct()
+    
+    # UTILIZZO DI PIU' CONDIZIONI DI SELEZIONE
+    data = datetime.date(1990,1,1)
+    visualizzazioni = 50
+    #18. Articoli visualizzati: Quinto articolo!, Nono articolo!, Decimo articolo!, Quattordicesimo articolo!
+    articoli_con_and = Articolo.objects.filter(giornalista__anno_di_nascita__gt=data, visualizzazioni__gte=visualizzazioni)
+
+    # Per mettere in OR le condizioni utilizzare l'operatore Q
+    from django.db.models import Q
+    # 19. Articoli visualizzati: Quinto articolo!, Sesto articolo!, Nono articolo!, Decimo articolo!, Tredicesimo articolo!, Quattordicesimo articolo!, Sedicesimo articolo!
+    articoli_con_or = Articolo.objects.filter(Q(giornalista__anno_di_nascita__gt=data) | Q(visualizzazioni__lte=visualizzazioni))
+
+
+    # Per il NOT (~) utillizzare l'operatore Q
+    #20. Articoli visualizzati: Quinto articolo!, Sesto articolo!, Nono articolo!, Decimo articolo!, Tredicesimo articolo!, Quattordicesimo articolo!
+    articoli_con_not = Articolo.objects.filter(~Q(giornalista__anno_di_nascita__lt=data))
+    # oppure il metodo exclude
+
+    # stampa lo stesso risultato del NOT, per anzichè mantenere gli articoli con data diversa da 1990,1,1, esclude tutti quelli la data uguale
+    articoli_con_exclude = Articolo.objects.exclude(giornalista__anno_di_nascita__lt=data)
+
     #Creare il dizionario content
     context = {
         'articoli_cognome': articoli_cognome,
@@ -103,7 +138,13 @@ def queryBase(request):
         'giornalista_anziano': giornalista_anziano,
         'ultimi': ultimi,
         'articoli_minime_visualizzazioni': articoli_minime_visualizzazioni,
-        'articoli_parola': articoli_parola
+        'articoli_parola': articoli_parola,
+        'articoli_mese_anno': articoli_mese_anno,
+        'giornalisti_con_articoli_popolari': giornalisti_con_articoli_popolari,
+        'articoli_con_and': articoli_con_and,
+        'articoli_con_or': articoli_con_or,
+        'articoli_con_not': articoli_con_not,
+        'articoli_con_exclude': articoli_con_exclude
     }
 
     return render(request, 'news/query.html', context)

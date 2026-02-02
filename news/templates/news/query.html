@@ -92,4 +92,52 @@
             {% endfor %}
         </ul>
     </p>
+    <hr>
+    <p><strong>Articoli pubblicati a Gennaro 2023: </strong>
+        <ul>
+            {% for articolo in articoli_mese_anno %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Giornalisti con almeno un articolo con più di 100 visualizzazioni: </strong>
+        <ul>
+            {% for giornalisti in giornalisti_con_articoli_popolari %}
+                <li>{{ giornalisti }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Selezionione AND: </strong>
+        <ul>
+            {% for articolo in articoli_con_and %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Selezionione OR: </strong>
+        <ul>
+            {% for articolo in articoli_con_or %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Selezionione NOT: </strong>
+        <ul>
+            {% for articolo in articoli_con_not %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <hr>
+    <p><strong>Selezionione EXCLUDE: </strong>
+        <ul>
+            {% for articolo in articoli_con_exclude %}
+                <li>{{ articolo }}</li>
+            {% endfor %}
+        </ul>
+    </p>
 {%endblock content %}

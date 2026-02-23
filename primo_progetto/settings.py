@@ -42,8 +42,13 @@ INSTALLED_APPS = [
     'seconda_app',
     'prova_pratica_0',
     'news',
-    'voti'
+    'voti',
+    'forms_app',
+    'crispy_forms',
+    'crispy_bootstrap4'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,7 +70,9 @@ TEMPLATES = [
                  os.path.join(BASE_DIR,'seconda_app/templates'),
                  os.path.join(BASE_DIR,'prova_pratica_0/templates'),
                  os.path.join(BASE_DIR,'news/templates'),
-                 os.path.join(BASE_DIR,'voti/templates')],
+                 os.path.join(BASE_DIR,'voti/templates'),
+                 os.path.join(BASE_DIR,'forms_app/templates')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

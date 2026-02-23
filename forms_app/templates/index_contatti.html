@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{%block title%} {{ block.super }} | Index Contatti{%endblock title%}
+{%block content%}
+    <h1>Index Contatti</h1>
+    <ol>
+        <li><a href="{% url 'index_generale'%}">Index generale</a></li>
+        <li><a href="{% url 'forms_app:contattaci'%}">Contattaci</a></li>
+        <li><a href="{% url 'forms_app:lista_contatti'%}">Lista contatti</a></li>
+    </ol>
+{%endblock content%}

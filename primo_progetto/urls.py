@@ -26,5 +26,6 @@ urlpatterns = [
     path('',include("prova_pratica_0.urls",namespace="prova_pratica_0")),
     path('',include("news.urls",namespace="news")),
     path('',include("voti.urls",namespace="voti")),
-    path('',include("forms_app.urls",namespace="forms_app"))
+    path('',include("forms_app.urls",namespace="forms_app")),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

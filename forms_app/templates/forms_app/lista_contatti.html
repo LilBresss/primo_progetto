@@ -4,11 +4,11 @@
 
 {% block content %}
     <table class="table table-responsive">
-        {% if request.user.is_authenticated %}
-            <td>Cancella</td>
-            <td>Modifica</td>
-        {% endif %}
         <tr>
+        {% if request.user.is_authenticated %}
+            <th>Cancella</th>
+            <th>Modifica</th>
+        {% endif %}
             <th>Nome</th>
             <th>Cognome</th>
             <th>Email</th>
@@ -17,8 +17,8 @@
         {% for contatto in contatti %}
             <tr>
                 {% if request.user.is_authenticated %}
-                    <td><a href={% url 'forms_app:elimina-contatto' c.pk %}><i class="fas fa-eraser"></i></a></td>
-                    <td><a href={% url 'forms_app:modifica-contatto' c.pk %}><i class="far fa-edit"></i></a></td>
+                    <td><a href={% url 'forms_app:elimina_contatto' contatto.pk %}><i class="fas fa-eraser"></i></a></td>
+                    <td><a href={% url 'forms_app:modifica_contatto' contatto.pk %}><i class="far fa-edit"></i></a></td>
                 {% endif %}
                 <td>{{ contatto.nome }}</td>
                 <td>{{ contatto.cognome }}</td>

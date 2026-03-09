@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }} | Elimina contatto{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1></h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|cispy }}
+            <input type="submit" class="btn btn-primary" value="CONFERMA ELIMINAZIONE">
+        </form>
+    </div>
+{% endblock content %}

@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'voti',
     'forms_app',
     'crispy_forms',
-    'crispy_bootstrap4'
+    'crispy_bootstrap4',
+    'accounts'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -71,7 +72,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR,'prova_pratica_0/templates'),
                  os.path.join(BASE_DIR,'news/templates'),
                  os.path.join(BASE_DIR,'voti/templates'),
-                 os.path.join(BASE_DIR,'forms_app/templates')
+                 os.path.join(BASE_DIR,'forms_app/templates'),
+                 os.path.join(BASE_DIR,'accounts/templates')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {

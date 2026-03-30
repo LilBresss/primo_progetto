@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'forms_app',
     'crispy_forms',
     'crispy_bootstrap4',
-    'accounts'
+    'accounts',
+    'api'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -73,7 +74,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR,'news/templates'),
                  os.path.join(BASE_DIR,'voti/templates'),
                  os.path.join(BASE_DIR,'forms_app/templates'),
-                 os.path.join(BASE_DIR,'accounts/templates')
+                 os.path.join(BASE_DIR,'accounts/templates'),
+                 os.path.join(BASE_DIR,'api/templates')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -132,6 +134,7 @@ USE_TZ = True
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

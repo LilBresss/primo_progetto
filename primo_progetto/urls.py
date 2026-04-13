@@ -21,12 +21,13 @@ from primo_progetto.views import index_root
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("prima_app.urls",namespace="prima_app")),
-    path('', index_root, name='index_generale'),
+    path('',index_root, name='index_generale'),
     path('',include("seconda_app.urls",namespace="seconda_app")),
     path('',include("prova_pratica_0.urls",namespace="prova_pratica_0")),
     path('',include("news.urls",namespace="news")),
     path('',include("voti.urls",namespace="voti")),
     path('',include("forms_app.urls",namespace="forms_app")),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('api/',include("api.urls",namespace="api"))
 ]
